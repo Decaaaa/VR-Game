@@ -1,0 +1,257 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!74 &7400000
+AnimationClip:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: jump
+  serializedVersion: 7
+  m_Legacy: 0
+  m_Compressed: 0
+  m_UseHighQualityCurve: 1
+  m_RotationCurves:
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: {x: 0.00095155195, y: 0.04360901, z: 0.021794122, w: -0.99881047}
+        inSlope: {x: 0.56392354, y: -0.013380386, z: 0.024085194, w: 0.025159717}
+        outSlope: {x: 0.56392354, y: -0.013380386, z: 0.024085194, w: 0.025159717}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0, y: 0, z: 0, w: 0}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+      - serializedVersion: 3
+        time: 0.1
+        value: {x: 0.057343904, y: 0.04227097, z: 0.024202641, w: -0.9962945}
+        inSlope: {x: 0.51176757, y: -0.012142884, z: 0.02185762, w: 0.02283284}
+        outSlope: {x: 0.51176757, y: -0.012142884, z: 0.02185762, w: 0.02283284}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+      - serializedVersion: 3
+        time: 0.1667
+        value: {x: 0.088, y: 0.04154358, z: 0.025511965, w: -0.99492675}
+        inSlope: {x: 0.4596116, y: -0.010905382, z: 0.019630045, w: 0.020505963}
+        outSlope: {x: 0.4596116, y: -0.010905382, z: 0.019630045, w: 0.020505963}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+        outWeight: {x: 0, y: 0, z: 0, w: 0}
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: Sketchfab_model/root/GLTF_SceneRootNode/_235/archor_234/root_233/legs_232/left_leg_206
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: {x: 0, y: 0, z: -0, w: -1}
+        inSlope: {x: -1.6767002, y: 0, z: 0, w: 0.22074163}
+        outSlope: {x: -1.6767002, y: 0, z: 0, w: 0.22074163}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0, y: 0, z: 0, w: 0}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+      - serializedVersion: 3
+        time: 0.1
+        value: {x: -0.16767003, y: 0, z: 0, w: -0.97792584}
+        inSlope: {x: -1.521626, y: 0, z: 0, w: 0.20032601}
+        outSlope: {x: -1.521626, y: 0, z: 0, w: 0.20032601}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+      - serializedVersion: 3
+        time: 0.1667
+        value: {x: -0.25881904, y: 0, z: -0, w: -0.9659258}
+        inSlope: {x: -1.3665519, y: 0, z: -0, w: 0.17991039}
+        outSlope: {x: -1.3665519, y: 0, z: -0, w: 0.17991039}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+        outWeight: {x: 0, y: 0, z: 0, w: 0}
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: Sketchfab_model/root/GLTF_SceneRootNode/_235/archor_234/root_233/legs_232/left_leg_206/left_leg2_201
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: {x: 0, y: 0, z: -0, w: -1}
+        inSlope: {x: -0.8455841, y: 0, z: 0, w: 0.055422187}
+        outSlope: {x: -0.8455841, y: 0, z: 0, w: 0.055422187}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0, y: 0, z: 0, w: 0}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+      - serializedVersion: 3
+        time: 0.1
+        value: {x: -0.08455841, y: 0, z: 0, w: -0.9944578}
+        inSlope: {x: -0.76737803, y: 0, z: 0, w: 0.050296515}
+        outSlope: {x: -0.76737803, y: 0, z: 0, w: 0.050296515}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+      - serializedVersion: 3
+        time: 0.1667
+        value: {x: -0.13052619, y: 0, z: -0, w: -0.9914449}
+        inSlope: {x: -0.68917197, y: 0, z: -0, w: 0.045170847}
+        outSlope: {x: -0.68917197, y: 0, z: -0, w: 0.045170847}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+        outWeight: {x: 0, y: 0, z: 0, w: 0}
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: Sketchfab_model/root/GLTF_SceneRootNode/_235/archor_234/root_233/legs_232/left_leg_206/left__205
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: {x: 0.00095155195, y: -0.04360901, z: -0.021794122, w: -0.99881047}
+        inSlope: {x: 2.2126923, y: 0.06532673, z: -0.08810975, w: 0.39233088}
+        outSlope: {x: 2.2126923, y: 0.06532673, z: -0.08810975, w: 0.39233088}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0, y: 0, z: 0, w: 0}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+      - serializedVersion: 3
+        time: 0.1
+        value: {x: 0.2222208, y: -0.037076335, z: -0.030605096, w: -0.9595774}
+        inSlope: {x: 2.0080454, y: 0.059284806, z: -0.07996069, w: 0.3560453}
+        outSlope: {x: 2.0080454, y: 0.059284806, z: -0.07996069, w: 0.3560453}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+      - serializedVersion: 3
+        time: 0.1667
+        value: {x: 0.34250748, y: -0.033525035, z: -0.035394933, w: -0.9382494}
+        inSlope: {x: 1.8033985, y: 0.053242885, z: -0.07181164, w: 0.3197597}
+        outSlope: {x: 1.8033985, y: 0.053242885, z: -0.07181164, w: 0.3197597}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+        outWeight: {x: 0, y: 0, z: 0, w: 0}
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: Sketchfab_model/root/GLTF_SceneRootNode/_235/archor_234/root_233/legs_232/right_leg_231
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: {x: 0, y: 0, z: -0, w: -1}
+        inSlope: {x: -3.7157843, y: 0, z: 0, w: 1.1715823}
+        outSlope: {x: -3.7157843, y: 0, z: 0, w: 1.1715823}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0, y: 0, z: 0, w: 0}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+      - serializedVersion: 3
+        time: 0.1
+        value: {x: -0.37157843, y: 0, z: 0, w: -0.88284177}
+        inSlope: {x: -3.3721201, y: 0, z: 0, w: 1.0632253}
+        outSlope: {x: -3.3721201, y: 0, z: 0, w: 1.0632253}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+      - serializedVersion: 3
+        time: 0.1667
+        value: {x: -0.57357645, y: 0, z: -0, w: -0.81915206}
+        inSlope: {x: -3.028456, y: 0, z: -0, w: 0.95486814}
+        outSlope: {x: -3.028456, y: 0, z: -0, w: 0.95486814}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+        outWeight: {x: 0, y: 0, z: 0, w: 0}
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: Sketchfab_model/root/GLTF_SceneRootNode/_235/archor_234/root_233/legs_232/right_leg_231/right_leg2_226
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: {x: 0, y: 0, z: -0, w: -1}
+        inSlope: {x: -1.948054, y: 0, z: 0, w: 0.299834}
+        outSlope: {x: -1.948054, y: 0, z: 0, w: 0.299834}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0, y: 0, z: 0, w: 0}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+      - serializedVersion: 3
+        time: 0.1
+        value: {x: -0.1948054, y: 0, z: 0, w: -0.9700166}
+        inSlope: {x: -1.767883, y: 0, z: 0, w: 0.2721034}
+        outSlope: {x: -1.767883, y: 0, z: 0, w: 0.2721034}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+      - serializedVersion: 3
+        time: 0.1667
+        value: {x: -0.3007058, y: 0, z: -0, w: -0.95371693}
+        inSlope: {x: -1.5877119, y: 0, z: -0, w: 0.24437277}
+        outSlope: {x: -1.5877119, y: 0, z: -0, w: 0.24437277}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+        outWeight: {x: 0, y: 0, z: 0, w: 0}
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: Sketchfab_model/root/GLTF_SceneRootNode/_235/archor_234/root_233/legs_232/right_leg_231/right__230
+  m_CompressedRotationCurves: []
+  m_EulerCurves: []
+  m_PositionCurves: []
+  m_ScaleCurves: []
+  m_FloatCurves: []
+  m_PPtrCurves: []
+  m_SampleRate: 60
+  m_WrapMode: 2
+  m_Bounds:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0, y: 0, z: 0}
+  m_ClipBindingConstant:
+    genericBindings: []
+    pptrCurveMapping: []
+  m_AnimationClipSettings:
+    serializedVersion: 2
+    m_AdditiveReferencePoseClip: {fileID: 0}
+    m_AdditiveReferencePoseTime: 0
+    m_StartTime: 0
+    m_StopTime: 0.1667
+    m_OrientationOffsetY: 0
+    m_Level: 0
+    m_CycleOffset: 0
+    m_HasAdditiveReferencePose: 0
+    m_LoopTime: 0
+    m_LoopBlend: 0
+    m_LoopBlendOrientation: 0
+    m_LoopBlendPositionY: 0
+    m_LoopBlendPositionXZ: 0
+    m_KeepOriginalOrientation: 0
+    m_KeepOriginalPositionY: 1
+    m_KeepOriginalPositionXZ: 0
+    m_HeightFromFeet: 0
+    m_Mirror: 0
+  m_EditorCurves: []
+  m_EulerEditorCurves: []
+  m_HasGenericRootTransform: 0
+  m_HasMotionFloatCurves: 0
+  m_Events: []
