@@ -7,10 +7,10 @@ public class Enemy : MonoBehaviour {
     public float EnemyHealth;
     public float damagetakenpers;
 
-    void OnCollisonEnter(Collision col) {
-        Debug.Log("NIJNJA Krishna");
-        if(col.gameObject.tag.Equals("playerContact")) {
-               EnemyHealth-=(System.Math.Abs(col.relativeVelocity.x)+System.Math.Abs(col.relativeVelocity.y)+System.Math.Abs(col.relativeVelocity.z))/1000*damagetakenpers;
+    void OnTriggerEnter(Collider other) {
+        if(other.tag == "playerContact") {
+            Destroy(this.gameObject);
+            //EnemyHealth-=10*damagetakenpers;
         }
     }
 }
