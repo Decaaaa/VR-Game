@@ -9,8 +9,8 @@ public class Enemy : MonoBehaviour {
 
     void OnTriggerEnter(Collider other) {
         if(other.tag == "playerContact") {
-            Destroy(this.gameObject);
-            //EnemyHealth-=10*damagetakenpers;
+            //Destroy(this.gameObject);
+            EnemyHealth-=damagetakenpers/30;
         }
     }
 }

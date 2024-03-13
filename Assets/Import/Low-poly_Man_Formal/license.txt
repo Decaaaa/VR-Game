@@ -1,0 +1,11 @@
+Model Information:
+* title:	Low-poly Man Formal
+* source:	https://sketchfab.com/3d-models/low-poly-man-formal-c5f57b7fbd884269ac8bdc0c393edc0a
+* author:	Razvan Savescu (https://sketchfab.com/razvansavescu)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Low-poly Man Formal" (https://sketchfab.com/3d-models/low-poly-man-formal-c5f57b7fbd884269ac8bdc0c393edc0a) by Razvan Savescu (https://sketchfab.com/razvansavescu) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
