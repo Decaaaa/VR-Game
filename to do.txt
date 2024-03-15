@@ -1,0 +1,5 @@
+-fix enemy health bar
+-cook up complexity of enemy ai
+-make working shop
+-jim
+-make more enemies
