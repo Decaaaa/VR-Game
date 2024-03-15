@@ -7,6 +7,8 @@ public class EnemyFollow : MonoBehaviour {
 
     private Animator mAnimator;
 
+    public AudioSource a;
+
     public NavMeshAgent enemy;
     public Transform Player; 
 
@@ -16,6 +18,7 @@ public class EnemyFollow : MonoBehaviour {
 
     public float dps;
     GameObject CameraPlayer;
+
 
     // Start is called before the first frame update
     void Start() {
@@ -45,6 +48,7 @@ public class EnemyFollow : MonoBehaviour {
 
     private void AttackPlayer() {
         enemy.SetDestination(transform.position);
+        
     }
 
     private void Walk(){
@@ -54,5 +58,8 @@ public class EnemyFollow : MonoBehaviour {
     private void Box(){
         mAnimator.SetBool("WhatToDo", false);
         CameraPlayer.GetComponent<Player>().playerHealth-=dps/100;
+        if (!a.isPlaying){
+             a.Play(1);
+        }
     }
 }
