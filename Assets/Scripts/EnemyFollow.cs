@@ -59,7 +59,7 @@ public class EnemyFollow : MonoBehaviour {
         mAnimator.SetBool("WhatToDo", false);
         CameraPlayer.GetComponent<Player>().playerHealth-=dps/100;
         if (!a.isPlaying){
-             a.Play(1);
+             a.PlayDelayed(1);
         }
     }
 }
