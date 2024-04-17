@@ -6,13 +6,8 @@ public class Enemy : MonoBehaviour {
 
     public float EnemyHealth;
     public float damagetakenpers;
-    
-    GameObject mc;
-
-    void Start()
-    {
-        mc = GameObject.Find("Main Camera");
-    }
+    public GameObject player;
+    private bool debug = true;
     
     void OnTriggerEnter(Collider other) {
         if(other.tag == "playerContact") {
@@ -23,12 +18,25 @@ public class Enemy : MonoBehaviour {
             Destroy(GameObject.Find("Cool Robot Again"));
             Destroy(GameObject.Find("Health Bars"));
         }
-        // Vector3 playerPos = mc.transform.position;
-        // if(EnemyHealth <= 0 && !((playerPos.x>314.34 && playerPos.x<324.62) && (playerPos.z>-207 && playerPos.z<-202.77))) {
-        //     GameObject.Find("Complete XR Origin Set Up Variant").transform.rotation = new Quaternion(0, 180, 0, 0);
-        //     GameObject.Find("Complete XR Origin Set Up Variant").transform.position = new Vector3(320 , 51, -208);
-        //     GameObject.Find("Main Camera").transform.rotation = new Quaternion(0, 0, 0, 0);
-        //     GameObject.Find("Main Camera").transform.position = new Vector3(0, 0, 0);
-        // }
+        Vector3 playerPos = player.transform.position;
+        if(EnemyHealth <= 0 && !((playerPos.x>399.63f && playerPos.x<404.15f) && (playerPos.z>-4.07f && playerPos.z<10.26f))) {
+            player.transform.position = new Vector3(401.96f , 51, 6.81f);
+            player.transform.rotation = Quaternion.Euler(0, 180, 0);
+        }
+    }
+
+    void Update() {
+        if(debug) {
+            EnemyHealth -= 10 * Time.deltaTime;
+            if(EnemyHealth <= 0) {
+                Destroy(GameObject.Find("Cool Robot Again"));
+                Destroy(GameObject.Find("Health Bars"));
+            }
+            Vector3 playerPos = player.transform.position;
+            if(EnemyHealth <= 0 && !((playerPos.x>399.63f && playerPos.x<404.15f) && (playerPos.z>-4.07f && playerPos.z<10.26f))) {
+                player.transform.position = new Vector3(401.96f , 51, 6.81f);
+                player.transform.rotation = Quaternion.Euler(0, 180, 0);
+            }
+        }
     }
 }
