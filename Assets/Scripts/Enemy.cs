@@ -7,7 +7,7 @@ public class Enemy : MonoBehaviour {
     public float EnemyHealth;
     public float damagetakenpers;
     public GameObject player;
-    private bool debug = true;
+    private bool debug = false;
     
     void OnTriggerEnter(Collider other) {
         if(other.tag == "playerContact") {
