@@ -11,7 +11,7 @@ public class EnemyHP : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        CameraEnemy=GameObject.Find("Humanoid_Robot_RV_A_001");
+        CameraEnemy=GameObject.Find("Object_343");
     }
 
     // Update is called once per frame
