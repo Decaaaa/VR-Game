@@ -1147,7 +1147,7 @@ Transform:
   m_GameObject: {fileID: 536599266}
   serializedVersion: 2
   m_LocalRotation: {x: -0.0114637865, y: 0.008095412, z: 0.006161044, w: 0.9998826}
-  m_LocalPosition: {x: 1.8813251, y: 2.7614603, z: -5.2390013}
+  m_LocalPosition: {x: -1, y: 213, z: -10}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1485,6 +1485,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.005
       objectReference: {fileID: 0}
+    - target: {fileID: -2504216667131839833, guid: 901578eacb300004e88c8d222765addb, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 901578eacb300004e88c8d222765addb, type: 3}
       propertyPath: m_Name
       value: NinjaKrishna
@@ -1501,7 +1505,7 @@ PrefabInstance:
       addedObject: {fileID: 884395410}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 901578eacb300004e88c8d222765addb, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 884395409}
+      addedObject: {fileID: 884395413}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 901578eacb300004e88c8d222765addb, type: 3}
       insertIndex: -1
       addedObject: {fileID: 884395408}
@@ -1608,32 +1612,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   a: {fileID: 536599268}
-  enemy: {fileID: 884395409}
-  Player: {fileID: 1586167288}
+  enemy: {fileID: 884395413}
+  Player: {fileID: 1070385575}
   attackRange: 1
   dps: 5
---- !u!195 &884395409
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 884395404}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 1.5
-  m_Acceleration: 4
-  avoidancePriority: 50
-  m_AngularSpeed: 240
-  m_StoppingDistance: 1
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 0
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  EnemyObject: {fileID: 884395403}
 --- !u!95 &884395410
 Animator:
   serializedVersion: 5
@@ -1655,6 +1638,28 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!195 &884395413
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 884395404}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 5
+  m_Acceleration: 4
+  avoidancePriority: 50
+  m_AngularSpeed: 240
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &887294797
 GameObject:
   m_ObjectHideFlags: 0
@@ -1918,9 +1923,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AgentTypeID: 0
-  m_CollectObjects: 0
-  m_Size: {x: 10, y: 10, z: 10}
-  m_Center: {x: 0, y: 2, z: 0}
+  m_CollectObjects: 1
+  m_Size: {x: 39.110825, y: 2.9650788, z: 64.316315}
+  m_Center: {x: -0.18992996, y: -1.5174601, z: 0.61465454}
   m_LayerMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -2045,6 +2050,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FillImage: {fileID: 1023065186}
+--- !u!1 &1070385574
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1070385575}
+  m_Layer: 0
+  m_Name: Player Reference
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1070385575
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1070385574}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -1.12, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1586167288}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1102426693
 GameObject:
   m_ObjectHideFlags: 0
@@ -3621,6 +3657,10 @@ PrefabInstance:
       propertyPath: m_LocomotionVignetteProviders.Array.data[3].m_LocomotionProvider
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 3462571325970164592, guid: 65eb6b98091a5734ba9d9ca871cef69a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4271511168488432969, guid: 65eb6b98091a5734ba9d9ca871cef69a, type: 3}
       propertyPath: m_GazeTransform
       value: 
@@ -3848,6 +3888,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7179462289238023466, guid: 65eb6b98091a5734ba9d9ca871cef69a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1444825219}
+    - targetCorrespondingSourceObject: {fileID: 2871854915733156396, guid: 65eb6b98091a5734ba9d9ca871cef69a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1070385575}
     - targetCorrespondingSourceObject: {fileID: 2871854917430088270, guid: 65eb6b98091a5734ba9d9ca871cef69a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 228094391}
