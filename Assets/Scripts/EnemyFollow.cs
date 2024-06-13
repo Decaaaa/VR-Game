@@ -17,20 +17,25 @@ public class EnemyFollow : MonoBehaviour {
     public GameObject EnemyObject;
     float EnemyHealth;
     bool Recovery;
-
+    UnityEngine.Vector3 randDir;
     // Start is called before the first frame update
     void Start() {
         playerInAttackRange = false;
         mAnimator = GetComponent<Animator>();
         CameraPlayer=GameObject.Find("Main Camera");
         Recovery = false;
+
+        float newDist = 5f;
+        randDir = new UnityEngine.Vector3(Random.Range(-10.0f, 10.0f), 0.0f, Random.Range(-10.0f,10.0f));
+        UnityEngine.Vector3.Normalize(randDir);
+        randDir *= newDist;
     }
 
     // Update is called once per frame
     void Update() {
         UnityEngine.Vector3 distanceToPlayer = transform.position - Player.position;
         EnemyHealth = EnemyObject.GetComponent<Enemy>().EnemyHealth;
-        Recovery = EnemyHealth <= 50 && EnemyHealth > 1;
+        Recovery = EnemyHealth <= 50 && EnemyHealth > 0.5;
 
         playerInAttackRange = distanceToPlayer.magnitude < attackRange;
         bool anim = distanceToPlayer.magnitude < (attackRange+1);
@@ -45,8 +50,8 @@ public class EnemyFollow : MonoBehaviour {
     }
 
     private void ChasePlayer() {
-        Debug.Log("enemy: " + transform.position);
-        Debug.Log("player: " + Player.position);
+        //Debug.Log("enemy: " + transform.position);
+        //Debug.Log("player: " + Player.position);
         enemy.SetDestination(Player.position);
         enemy.isStopped = false;
     }
@@ -57,19 +62,8 @@ public class EnemyFollow : MonoBehaviour {
     }
 
     private void RecoveryMode() {
-        UnityEngine.Vector3 fleePos = transform.position - Player.position;
-        UnityEngine.Vector3.Normalize(fleePos);
-        float minSafeDist = 3.0f;
-        float newDist = 0.5f;
-        UnityEngine.Vector3 randDir = new UnityEngine.Vector3(Random.Range(-10.0f, -2.0f), 0.0f, Random.Range(2.0f,10.0f));
-        UnityEngine.Vector3.Normalize(randDir);
-        randDir *= newDist;
-        fleePos *= minSafeDist;
-        UnityEngine.Vector3 finalV3 = randDir + fleePos;
-        finalV3.y = transform.position.y;
-        Debug.Log("I'm cumming: " + finalV3);
-        EnemyObject.GetComponent<Enemy>().EnemyHealth+=(2*Time.deltaTime);
-        enemy.SetDestination(finalV3);
+        enemy.SetDestination((2*transform.position) - Player.position);
+        enemy.isStopped = false;
     }
 
     private void Walk(){
