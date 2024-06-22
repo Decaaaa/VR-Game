@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Numerics;
@@ -13,10 +14,10 @@ public class EnemyFollow : MonoBehaviour {
     public float dps;
     private Animator mAnimator;
     GameObject CameraPlayer;
-    bool playerInAttackRange;
+    public bool playerInAttackRange;
     public GameObject EnemyObject;
     float EnemyHealth;
-    bool Recovery;
+    public bool Recovery;
     UnityEngine.Vector3 randDir;
     // Start is called before the first frame update
     void Start() {
@@ -24,27 +25,20 @@ public class EnemyFollow : MonoBehaviour {
         mAnimator = GetComponent<Animator>();
         CameraPlayer=GameObject.Find("Main Camera");
         Recovery = false;
-
-        float newDist = 5f;
-        randDir = new UnityEngine.Vector3(Random.Range(-10.0f, 10.0f), 0.0f, Random.Range(-10.0f,10.0f));
-        UnityEngine.Vector3.Normalize(randDir);
-        randDir *= newDist;
     }
 
     // Update is called once per frame
     void Update() {
         UnityEngine.Vector3 distanceToPlayer = transform.position - Player.position;
         EnemyHealth = EnemyObject.GetComponent<Enemy>().EnemyHealth;
-        Recovery = EnemyHealth <= 50 && EnemyHealth > 0.5;
+        Recovery = EnemyHealth <= 50 && EnemyHealth > 25; 
 
-        playerInAttackRange = distanceToPlayer.magnitude < attackRange;
-        bool anim = distanceToPlayer.magnitude < (attackRange+1);
-        //Debug.Log(playerInAttackRange);
+        playerInAttackRange = Math.Abs(distanceToPlayer.magnitude) < attackRange;
         if(Recovery) RecoveryMode();
         else if(playerInAttackRange) AttackPlayer();
         else ChasePlayer();
 
-        if (anim && !Recovery) Box();
+        if (playerInAttackRange && !Recovery) Box();
         else Walk();
         //enemy.transform.LookAt(Player);
     }
@@ -62,7 +56,7 @@ public class EnemyFollow : MonoBehaviour {
     }
 
     private void RecoveryMode() {
-        enemy.SetDestination((2*transform.position) - Player.position);
+        enemy.SetDestination(transform.position-(Player.position-transform.position)/100);
         enemy.isStopped = false;
     }
 
@@ -72,7 +66,8 @@ public class EnemyFollow : MonoBehaviour {
 
     private void Box(){
         mAnimator.SetBool("WhatToDo", false);
-        CameraPlayer.GetComponent<Player>().playerHealth-=dps/100;
+        if(EnemyHealth <= 25) CameraPlayer.GetComponent<Player>().playerHealth-=dps*Time.deltaTime;
+        CameraPlayer.GetComponent<Player>().playerHealth-=dps*Time.deltaTime;
         if (!a.isPlaying){
              a.PlayDelayed(1);
         }

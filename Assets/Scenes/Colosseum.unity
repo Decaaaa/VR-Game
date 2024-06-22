@@ -1548,6 +1548,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyHealth: 100
   damagetakenpers: 10
+  damageHealedPerSec: 3
   player: {fileID: 618264130}
 --- !u!54 &884395406
 Rigidbody:
@@ -1616,7 +1617,9 @@ MonoBehaviour:
   Player: {fileID: 1070385575}
   attackRange: 1
   dps: 5
+  playerInAttackRange: 0
   EnemyObject: {fileID: 884395403}
+  Recovery: 0
 --- !u!95 &884395410
 Animator:
   serializedVersion: 5
@@ -1648,7 +1651,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 5
+  m_Speed: 1.5
   m_Acceleration: 4
   avoidancePriority: 50
   m_AngularSpeed: 240
@@ -2059,6 +2062,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1070385575}
+  - component: {fileID: 1070385576}
   m_Layer: 0
   m_Name: Player Reference
   m_TagString: Untagged
@@ -2081,6 +2085,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1586167288}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1070385576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1070385574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b34000d1fe711b4abab3d6ffb4ca9b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heyy: {fileID: 884395404}
 --- !u!1 &1102426693
 GameObject:
   m_ObjectHideFlags: 0
@@ -3859,7 +3876,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9159519855357366133, guid: 65eb6b98091a5734ba9d9ca871cef69a, type: 3}
       propertyPath: m_TurnAmount
-      value: 60
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9159519855357366133, guid: 65eb6b98091a5734ba9d9ca871cef69a, type: 3}
       propertyPath: m_LeftHandSnapTurnAction.m_UseReference
