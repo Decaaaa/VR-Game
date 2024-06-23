@@ -56,7 +56,7 @@ public class EnemyFollow : MonoBehaviour {
     }
 
     private void RecoveryMode() {
-        enemy.SetDestination(transform.position-(Player.position-transform.position)/100);
+        enemy.SetDestination(transform.position-(Player.position-transform.position)/50);
         enemy.isStopped = false;
     }
 
