@@ -14,6 +14,7 @@ public class Enemy : MonoBehaviour {
     public GameObject rightHand;
     public GameObject leftHand;
     public GameObject label;
+    public float maxHitStrength;
 
     void OnTriggerEnter(Collider other) {
         if(other.tag == "playerContactR") {
@@ -23,6 +24,7 @@ public class Enemy : MonoBehaviour {
                 EnemyHealth-=damagetakenpers*v*Time.deltaTime;
                 Haptics.SendHapticsR(v);
                 label.GetComponent<updateForceText>().updateText(v);
+                if(maxHitStrength < v) maxHitStrength = v;
             }
         }
         if(other.tag == "playerContactL") {
@@ -32,6 +34,7 @@ public class Enemy : MonoBehaviour {
                 EnemyHealth-=damagetakenpers*v*Time.deltaTime;
                 Haptics.SendHapticsL(v);
                 label.GetComponent<updateForceText>().updateText(v);
+                if(maxHitStrength < v) maxHitStrength = v;
             }
         }
         if(EnemyHealth <= 0) {
