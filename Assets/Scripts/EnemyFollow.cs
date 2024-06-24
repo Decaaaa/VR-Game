@@ -12,7 +12,7 @@ public class EnemyFollow : MonoBehaviour {
     public Transform Player; 
     public float attackRange;
     public float dps;
-    private Animator mAnimator;
+    public Animator mAnimator;
     GameObject CameraPlayer;
     public bool playerInAttackRange;
     public GameObject EnemyObject;
@@ -22,7 +22,6 @@ public class EnemyFollow : MonoBehaviour {
     // Start is called before the first frame update
     void Start() {
         playerInAttackRange = false;
-        mAnimator = GetComponent<Animator>();
         CameraPlayer=GameObject.Find("Main Camera");
         Recovery = false;
     }
@@ -41,6 +40,11 @@ public class EnemyFollow : MonoBehaviour {
         if (playerInAttackRange && !Recovery) Box();
         else Walk();
         //enemy.transform.LookAt(Player);
+
+        if(mAnimator.GetBool("moveBack")) {
+            transform.position = transform.position-(Player.position-transform.position)/40;
+            mAnimator.SetBool("moveBack", false);
+        }
     }
 
     private void ChasePlayer() {

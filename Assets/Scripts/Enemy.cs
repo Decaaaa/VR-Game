@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour {
@@ -16,6 +17,15 @@ public class Enemy : MonoBehaviour {
     public GameObject label;
     public float maxHitStrength;
 
+    private Rigidbody rb;
+    
+    public Animator urmum;
+
+    public AudioSource[] audios;
+    void Start(){
+        rb=GetComponent<Rigidbody>();
+    }
+
     void OnTriggerEnter(Collider other) {
         if(other.tag == "playerContactR") {
             //Destroy(this.gameObject);
@@ -25,8 +35,17 @@ public class Enemy : MonoBehaviour {
                 Haptics.SendHapticsR(v);
                 label.GetComponent<updateForceText>().updateText(v);
                 if(maxHitStrength < v) maxHitStrength = v;
+                if(10/v <= 1) {
+                    urmum.SetBool("Knockback", true);
+                }
+                else {
+                    if(Random.Range(0,10/v) <= 2 && (int) Random.Range(0,2.999999999999f) == 1) urmum.SetBool("Knockback", true);;
+                }
+                if(!audios[0].isPlaying && !audios[1].isPlaying && !audios[2].isPlaying && !audios[3].isPlaying && !audios[4].isPlaying)
+                    audios[(int) Random.Range(0,4.999f)].PlayDelayed(0);
             }
         }
+
         if(other.tag == "playerContactL") {
             //Destroy(this.gameObject);
             float v=leftHand.GetComponent<HandStuff>().velocity;
@@ -35,16 +54,23 @@ public class Enemy : MonoBehaviour {
                 Haptics.SendHapticsL(v);
                 label.GetComponent<updateForceText>().updateText(v);
                 if(maxHitStrength < v) maxHitStrength = v;
+                if(10/v <= 1) {
+                    urmum.SetBool("Knockback", true);
+                }
+                else {
+                    if(Random.Range(0,10/v) <= 2 && Random.Range(0,100) < 50) urmum.SetBool("Knockback", true);
+                }
+                audios[(int) Random.Range(0,4.999f)].PlayDelayed(0);
             }
         }
         if(EnemyHealth <= 0) {
             Destroy(GameObject.Find("Cool Robot Again"));
             Destroy(GameObject.Find("Health Bars"));
         }
-        Vector3 playerPos = player.transform.position;
+        UnityEngine.Vector3 playerPos = player.transform.position;
         if(EnemyHealth <= 0 && !((playerPos.x>399.63f && playerPos.x<404.15f) && (playerPos.z>-4.07f && playerPos.z<10.26f))) {
-            player.transform.position = new Vector3(401.96f , 51, 6.81f);
-            player.transform.rotation = Quaternion.Euler(0, 180, 0);
+            player.transform.position = new UnityEngine.Vector3(401.96f , 51, 6.81f);
+            player.transform.rotation = UnityEngine.Quaternion.Euler(0, 180, 0);
         }
     }
 
