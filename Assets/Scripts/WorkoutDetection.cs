@@ -7,11 +7,12 @@ public class WorkoutDetection : MonoBehaviour
     private bool squats = false;
     private bool jacks = false;
 
-    public int points = 0;
     public Transform head;
     public Transform leftHand;
     public Transform rightHand;
     public int numPoints = 10;
+
+    public GameObject Player;
 
     private float deltaHead = 0f;
     private float deltaRight = 0f;
@@ -47,6 +48,8 @@ public class WorkoutDetection : MonoBehaviour
         oldHeadHeight = head.position.y;
         oldRightHeight = rightHand.position.y;
         oldLeftHeight = leftHand.position.y;
+
+        
     }
 
     // Update is called once per frame
@@ -57,22 +60,15 @@ public class WorkoutDetection : MonoBehaviour
         UpdateVariables();
         TrackSquats();
         TrackJJ();
-
-        if(finishedSquat && !prevSquat)
+        if (finishedSquat && !prevSquat)
         {
             squatCount++;
+            Player.GetComponent<MaxHealth>().updateHealth(10);
         }
 
-        if (finishedJJ && !prevJJ)
-        {
-            JJCount++;
-        }
-
+        //Debug.Log("squats: " + squatCount + "\nhealth: " + Player.GetComponent<MaxHealth>().getHealth());
         prevSquat = finishedSquat;
         prevJJ = finishedJJ;
-
-        points = (squatCount + JJCount) * numPoints;
-        Debug.Log(points);
     }
 
     void TrackSquats()

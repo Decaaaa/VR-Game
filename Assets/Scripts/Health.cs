@@ -9,6 +9,7 @@ public class Health : MonoBehaviour
     public Image FillImage;
     float CurrentHealth;
     GameObject CameraPlayer;
+    public GameObject maxHealthObj;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +20,6 @@ public class Health : MonoBehaviour
     void Update()
     {
         CurrentHealth = CameraPlayer.GetComponent<Player>().playerHealth;
-        FillImage.fillAmount = CurrentHealth/100;
+        FillImage.fillAmount = CurrentHealth/(maxHealthObj.GetComponent<MaxHealth>().getHealth());
     }
 }

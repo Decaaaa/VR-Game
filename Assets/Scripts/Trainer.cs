@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Trainer : MonoBehaviour
 {
@@ -38,6 +39,20 @@ public class Trainer : MonoBehaviour
             index++;
             audios[index].PlayDelayed(delays[index]);
             anim.SetInteger("newInt", animState[index]);
+        }
+
+        if(index == audios.Length)
+        {
+            if (GameObject.Find("maxHealth").GetComponent<MaxHealth>().getSwitch())
+            {
+                SceneManager.LoadScene(sceneBuildIndex: 2);
+               GameObject.Find("maxHealth").GetComponent<MaxHealth>().setSwitch(false);
+            }
+            else
+            {
+                SceneManager.LoadScene(sceneBuildIndex: 0);
+                GameObject.Find("maxHealth").GetComponent<MaxHealth>().setSwitch(true);
+            }
         }
     }
 }

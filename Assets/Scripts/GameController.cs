@@ -17,8 +17,16 @@ public class GameController : MonoBehaviour
     void Update()
     {
         if(enemy.GetComponent<Enemy>().EnemyHealth <= 0 && scene == 0) {
-            scene++;
-            SceneManager.LoadScene("KrishnaWorld");
+            if (GameObject.Find("MaxHealth Backup").GetComponent<MaxHealth>().getSwitch())
+            {
+                SceneManager.LoadScene(sceneBuildIndex: 2);
+                GameObject.Find("MaxHealth Backup").GetComponent<MaxHealth>().setSwitch(false);
+            }
+            else
+            {
+                SceneManager.LoadScene(sceneBuildIndex: 1);
+                GameObject.Find("MaxHealth Backup").GetComponent<MaxHealth>().setSwitch(true);
+            }
         }
     }
 }
