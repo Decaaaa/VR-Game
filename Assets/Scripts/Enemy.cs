@@ -8,12 +8,19 @@ public class Enemy : MonoBehaviour {
     public float damagetakenpers;
     public float damageHealedPerSec;
     public GameObject player;
+    public hapticsa Haptics;
     private bool debug = false;
     
     void OnTriggerEnter(Collider other) {
-        if(other.tag == "playerContact") {
+        if(other.tag == "playerContactR") {
             //Destroy(this.gameObject);
             EnemyHealth-=damagetakenpers*Time.deltaTime;
+            Haptics.isHapticR = true;
+        }
+        if(other.tag == "playerContactL") {
+            //Destroy(this.gameObject);
+            EnemyHealth-=damagetakenpers*Time.deltaTime;
+            Haptics.isHapticL = true;
         }
         if(EnemyHealth <= 0) {
             Destroy(GameObject.Find("Cool Robot Again"));
@@ -41,5 +48,7 @@ public class Enemy : MonoBehaviour {
         // }
         //Debug.Log(EnemyHealth <= 50 && EnemyHealth > 25);
         if(EnemyHealth <= 50 && EnemyHealth > 25) EnemyHealth += damageHealedPerSec * Time.deltaTime;
+        Haptics.isHapticL=false;
+        Haptics.isHapticR=false;
     }
 }
