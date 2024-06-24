@@ -13,9 +13,9 @@ public class hapticsa : MonoBehaviour
     [SerializeField]
     XRBaseController left;
 
-    public bool  isHapticL;
-    public bool  isHapticR;
 
+    public GameObject rightHand;
+    public GameObject leftHand;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,22 +25,21 @@ public class hapticsa : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isHapticR){
-            SendHapticsR();
-        }
-        if (isHapticL){
-            SendHapticsL();
-        }
+
     }
 
-    void SendHapticsR(){
+    public void SendHapticsR(float intensity){
         if (right!=null){
-            right.SendHapticImpulse(0.4f, 0.1f);
+            float newIntensity = intensity/12;
+            if(newIntensity > 1) newIntensity = 1;
+            right.SendHapticImpulse(newIntensity, 0.25f);
         }
     }
-    void SendHapticsL(){
+    public void SendHapticsL(float intensity){
         if (left!=null){
-            left.SendHapticImpulse(0.4f, 0.1f);
+            float newIntensity = intensity/12;
+            if(newIntensity > 1) newIntensity = 1;
+            left.SendHapticImpulse(newIntensity, 0.25f);
         }
     }
 }
