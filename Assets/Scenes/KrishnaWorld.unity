@@ -1252,7 +1252,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1055126577752158231, guid: 1eb6969b7ef8ed44a9a446e718710222, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3233,7 +3233,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100338, guid: 49f2055d53eeb4e5a92af590a44bddee, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 100338, guid: 49f2055d53eeb4e5a92af590a44bddee, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -4008,7 +4008,9 @@ MonoBehaviour:
   - {fileID: 1214420834}
   - {fileID: 1070846648}
   - {fileID: 880360476}
-  delays: 000000000000000004000000070000000100000007000000040000000100000001000000
+  delays: 000000000000000004000000070000000100000003000000040000000100000001000000
+  anim: {fileID: 5866666021003796924}
+  animState: ffffffffffffffffffffffff0100000001000000000000000000000000000000ffffffff
 --- !u!1 &1444825216
 GameObject:
   m_ObjectHideFlags: 0
@@ -6393,7 +6395,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1975337666
 MonoBehaviour:
   m_ObjectHideFlags: 0
