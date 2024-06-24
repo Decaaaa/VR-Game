@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.043499734, g: 0.04467286, b: 0.05958659, a: 1}
+  m_IndirectSpecularColor: {r: 0.043504756, g: 0.04468019, b: 0.0595955, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -348,7 +348,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &114134090
 Transform:
   m_ObjectHideFlags: 0
@@ -1295,6 +1295,10 @@ PrefabInstance:
     - target: {fileID: 1055126577752158231, guid: 1eb6969b7ef8ed44a9a446e718710222, type: 3}
       propertyPath: m_Name
       value: PipeServer
+      objectReference: {fileID: 0}
+    - target: {fileID: 1055126577752158231, guid: 1eb6969b7ef8ed44a9a446e718710222, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6433,7 +6437,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1975337666
 MonoBehaviour:
   m_ObjectHideFlags: 0
