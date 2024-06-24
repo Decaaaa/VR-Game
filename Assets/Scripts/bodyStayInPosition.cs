@@ -18,7 +18,7 @@ public class bodyStayInPosition : MonoBehaviour
     {
         //float step = speed * Time.deltaTime;
         //transform.position = Vector3.MoveTowards(transform.position, target.position, step);
-        Vector3 goal = new Vector3(target.position.x, target.position.y - offset, target.position.z);
+        Vector3 goal = new Vector3(target.position.x, target.position.y - offset, target.position.z - 0.3f);
         transform.position = goal;
     }
 }
