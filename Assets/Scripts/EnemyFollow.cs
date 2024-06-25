@@ -31,7 +31,7 @@ public class EnemyFollow : MonoBehaviour {
     void Update() {
         UnityEngine.Vector3 distanceToPlayer = transform.position - Player.position;
         EnemyHealth = EnemyObject.GetComponent<Enemy>().EnemyHealth;
-        Recovery = EnemyHealth <= (GameObject.Find("MaxHealth Backup").GetComponent<MaxHealth>().getEnemyHealth()*0.25f) && EnemyHealth > (GameObject.Find("MaxHealth Backup").GetComponent<MaxHealth>().getEnemyHealth()*0.5f); 
+        Recovery = EnemyHealth < (GameObject.Find("MaxHealth Backup").GetComponent<MaxHealth>().getEnemyHealth()*0.5f) && EnemyHealth > (GameObject.Find("MaxHealth Backup").GetComponent<MaxHealth>().getEnemyHealth()*0.25f); 
 
         playerInAttackRange = Math.Abs(distanceToPlayer.magnitude) < attackRange;
         if(Recovery) RecoveryMode();
