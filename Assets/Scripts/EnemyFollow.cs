@@ -71,7 +71,7 @@ public class EnemyFollow : MonoBehaviour {
 
     private void Box(){
         mAnimator.SetBool("WhatToDo", false);
-        if(EnemyHealth <= 25) {
+        if(EnemyHealth <= GameObject.Find("MaxHealth Backup").GetComponent<MaxHealth>().getEnemyHealth()*0.25f) {
             CameraPlayer.GetComponent<Player>().playerHealth-=dps*Time.deltaTime*2;
             enemy.speed = 1.9f;
         }
