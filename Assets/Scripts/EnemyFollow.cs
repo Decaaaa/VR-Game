@@ -21,6 +21,7 @@ public class EnemyFollow : MonoBehaviour {
     UnityEngine.Vector3 randDir;
     // Start is called before the first frame update
     void Start() {
+        dps = GameObject.Find("MaxHealth Backup").GetComponent<MaxHealth>().getEnemyHealth()/20f;
         playerInAttackRange = false;
         CameraPlayer=GameObject.Find("Main Camera");
         Recovery = false;
@@ -30,7 +31,7 @@ public class EnemyFollow : MonoBehaviour {
     void Update() {
         UnityEngine.Vector3 distanceToPlayer = transform.position - Player.position;
         EnemyHealth = EnemyObject.GetComponent<Enemy>().EnemyHealth;
-        Recovery = EnemyHealth <= 50 && EnemyHealth > 25; 
+        Recovery = EnemyHealth <= (GameObject.Find("MaxHealth Backup").GetComponent<MaxHealth>().getEnemyHealth()*0.25f) && EnemyHealth > (GameObject.Find("MaxHealth Backup").GetComponent<MaxHealth>().getEnemyHealth()*0.5f); 
 
         playerInAttackRange = Math.Abs(distanceToPlayer.magnitude) < attackRange;
         if(Recovery) RecoveryMode();
@@ -70,8 +71,14 @@ public class EnemyFollow : MonoBehaviour {
 
     private void Box(){
         mAnimator.SetBool("WhatToDo", false);
-        if(EnemyHealth <= 25) CameraPlayer.GetComponent<Player>().playerHealth-=dps*Time.deltaTime;
-        CameraPlayer.GetComponent<Player>().playerHealth-=dps*Time.deltaTime;
+        if(EnemyHealth <= 25) {
+            CameraPlayer.GetComponent<Player>().playerHealth-=dps*Time.deltaTime*2;
+            enemy.speed = 1.9f;
+        }
+        else { 
+            CameraPlayer.GetComponent<Player>().playerHealth-=dps*Time.deltaTime;
+            enemy.speed = 1.5f;
+        }
         if (!a.isPlaying){
              a.PlayDelayed(1);
         }
