@@ -18,6 +18,6 @@ public class EnemyHP : MonoBehaviour
     void Update()
     {
         CurrentHealth = CameraEnemy.GetComponent<Enemy>().EnemyHealth;
-        FillImage.fillAmount = CurrentHealth/100;
+        FillImage.fillAmount = CurrentHealth/GameObject.Find("MaxHealth Backup").GetComponent<MaxHealth>().getEnemyHealth();
     }
 }

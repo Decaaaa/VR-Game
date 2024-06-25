@@ -5,6 +5,7 @@ using UnityEngine;
 public class MaxHealth : MonoBehaviour
 {
     private static int maxHealth = 100;
+    private static int maxEnemyHealth = 100;
     private static bool toSceneSwitcher = false;
     // Start is called before the first frame update
     void Start()
@@ -26,7 +27,14 @@ public class MaxHealth : MonoBehaviour
     {
         return maxHealth;
     }
-
+    public void setEnemyHealth(int health)
+    {
+        maxEnemyHealth = health;
+    }
+    public int getEnemyHealth()
+    {
+        return maxEnemyHealth;
+    }
     public void setSwitch(bool nahoryah)
     {
         toSceneSwitcher = nahoryah;

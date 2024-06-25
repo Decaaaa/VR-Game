@@ -23,6 +23,7 @@ public class Enemy : MonoBehaviour {
 
     public AudioSource[] audios;
     void Start(){
+        EnemyHealth = GameObject.Find("maxHealth").GetComponent<MaxHealth>().getEnemyHealth();
         rb=GetComponent<Rigidbody>();
     }
 

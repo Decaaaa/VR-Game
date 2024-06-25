@@ -9,6 +9,8 @@ public class ayy : StateMachineBehaviour
     {
         base.OnStateEnter(animator, stateInfo,layerIndex);
         animator.SetBool("Knockback", false);
+        if(animator.GetBool("leftHit")) animator.SetBool("leftHit", false);
+        else animator.SetBool("leftHit", true);
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

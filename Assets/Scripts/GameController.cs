@@ -20,6 +20,7 @@ public class GameController : MonoBehaviour
             if (GameObject.Find("MaxHealth Backup").GetComponent<MaxHealth>().getSwitch())
             {
                 SceneManager.LoadScene(sceneBuildIndex: 2);
+                GameObject.Find("MaxHealth Backup").GetComponent<MaxHealth>().setEnemyHealth(GameObject.Find("MaxHealth Backup").GetComponent<MaxHealth>().getEnemyHealth()+125);
                 GameObject.Find("MaxHealth Backup").GetComponent<MaxHealth>().setSwitch(false);
             }
             else
