@@ -88,6 +88,6 @@ public class Enemy : MonoBehaviour {
         //     }
         // }
         //Debug.Log(EnemyHealth <= 50 && EnemyHealth > 25);
-        if(EnemyHealth <= 50 && EnemyHealth > 25) EnemyHealth += damageHealedPerSec * Time.deltaTime;
+        if(EnemyHealth <= 50 && EnemyHealth > 20) EnemyHealth += damageHealedPerSec * Time.deltaTime;
     }
 }

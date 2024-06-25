@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -33,7 +34,7 @@ public class WorkoutDetection : MonoBehaviour
     private bool startedSquat = false;
     private bool finishedSquat = false;
     private bool prevSquat = false;
-    private int squatCount = 0;
+    public int squatCount = 0;
 
     private bool startedJJ = false;
     private bool finishedJJ = false;
@@ -42,6 +43,15 @@ public class WorkoutDetection : MonoBehaviour
 
     private float time = 0f;
 
+    private float playerHeight;
+    private bool jumped = false;
+    private float dist;
+    private float oldDist;
+    private float deltaDist;
+    private int distIncrease = 0;
+    private int distDecrease = 0;
+    private bool JJBool = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -49,13 +59,17 @@ public class WorkoutDetection : MonoBehaviour
         oldRightHeight = rightHand.position.y;
         oldLeftHeight = leftHand.position.y;
 
-        
+        playerHeight = head.position.y;
+        dist = Vector3.Magnitude(rightHand.position - leftHand.position);
+        oldDist = dist;
     }
 
     // Update is called once per frame
     void Update()
     {
         time += Time.deltaTime;
+        dist = Vector3.Magnitude(rightHand.position - leftHand.position);
+        deltaDist = Math.Abs(dist) - Math.Abs(oldDist);
 
         UpdateVariables();
         TrackSquats();
@@ -66,14 +80,24 @@ public class WorkoutDetection : MonoBehaviour
             Player.GetComponent<MaxHealth>().updateHealth(10);
         }
 
+        if (finishedJJ && !prevJJ && JJBool)
+        {
+            JJCount++;
+            jumped = false;
+            Player.GetComponent<MaxHealth>().updateHealth(10);
+        }
+
         //Debug.Log("squats: " + squatCount + "\nhealth: " + Player.GetComponent<MaxHealth>().getHealth());
+
+        Debug.Log("JJ: " + JJCount + " | Squat: " + squatCount);
         prevSquat = finishedSquat;
         prevJJ = finishedJJ;
+        oldDist = dist;
     }
 
     void TrackSquats()
     {
-        if (headDown > 30 && headDown > headUp)
+        if (headDown > 90 && headDown > headUp)
         {
             startedSquat = true;
             finishedSquat = false;
@@ -90,19 +114,27 @@ public class WorkoutDetection : MonoBehaviour
     }
 
     void TrackJJ()
-    {
-        if ((leftDown > 30 && leftDown > leftUp) && (leftDown > 30 && leftDown > leftUp))
-        {
-            startedJJ = true;
-            finishedJJ = false;
-        }
-
-        if (startedJJ)
-        {
-            if (leftUp > 30 && rightUp > 30)
+    {   
+        if(head.position.y - playerHeight >= 0.17) {
+            if (leftUp > 25 && leftUp > leftDown)
             {
-                startedJJ = false;
-                finishedJJ = true;
+                startedJJ = true;
+                finishedJJ = false;
+            }
+
+            if(startedJJ) {
+                if(leftDown > 25) {
+                    finishedJJ = true;
+                    startedJJ = false;
+                }
+            }
+
+            if(distIncrease > 15) {
+                JJBool = true;
+            }
+
+            if(distDecrease > 15) {
+                JJBool = false;
             }
         }
     }
@@ -163,6 +195,20 @@ public class WorkoutDetection : MonoBehaviour
         else
         {
             leftUp = 0;
+        }
+
+        if(deltaDist < 0) {
+            distDecrease++;
+        }
+        else {
+            distDecrease = 0;
+        }
+
+        if(deltaDist > 0) {
+            distIncrease++;
+        }
+        else {
+            distIncrease = 0;
         }
 
         oldHeadHeight = head.position.y;
