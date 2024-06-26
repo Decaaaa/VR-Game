@@ -2107,7 +2107,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyHealth: 100
   damagetakenpers: 2
-  damageHealedPerSec: 5
+  damageHealedPerSec: 2.5
   player: {fileID: 618264130}
   Haptics: {fileID: 1745631136}
   rightHand: {fileID: 846548110}

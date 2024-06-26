@@ -11,11 +11,12 @@ public class Player : MonoBehaviour
     void Start()
     {
         playerHealth = maxHealthObj.GetComponent<MaxHealth>().getHealth();
+        //Debug.Log("marijuana");
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(playerHealth);   
+        //Debug.Log(playerHealth);   
     }
 }
