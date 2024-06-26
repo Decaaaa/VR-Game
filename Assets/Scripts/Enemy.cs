@@ -38,9 +38,13 @@ public class Enemy : MonoBehaviour {
                 if(maxHitStrength < v) maxHitStrength = v;
                 if(10/v <= 1) {
                     urmum.SetBool("Knockback", true);
+                    urmum.SetBool("leftHit", false);
                 }
                 else {
-                    if(Random.Range(0,10/v) <= 2 && (int) Random.Range(0,2.999999999999f) == 1) urmum.SetBool("Knockback", true);;
+                    if(Random.Range(0,10/v) <= 2 && (int) Random.Range(0,2.999999999999f) == 1) {
+                        urmum.SetBool("Knockback", true);
+                        urmum.SetBool("leftHit", false);
+                    }
                 }
                 if(!audios[0].isPlaying && !audios[1].isPlaying && !audios[2].isPlaying && !audios[3].isPlaying && !audios[4].isPlaying)
                     audios[(int) Random.Range(0,4.999f)].PlayDelayed(0);
@@ -57,9 +61,13 @@ public class Enemy : MonoBehaviour {
                 if(maxHitStrength < v) maxHitStrength = v;
                 if(10/v <= 1) {
                     urmum.SetBool("Knockback", true);
+                    urmum.SetBool("leftHit", true);
                 }
                 else {
-                    if(Random.Range(0,10/v) <= 2 && Random.Range(0,100) < 50) urmum.SetBool("Knockback", true);
+                    if(Random.Range(0,10/v) <= 2 && Random.Range(0,100) < 50) {
+                        urmum.SetBool("Knockback", true);
+                        urmum.SetBool("leftHit", true);
+                    }
                 }
                 audios[(int) Random.Range(0,4.999f)].PlayDelayed(0);
             }
