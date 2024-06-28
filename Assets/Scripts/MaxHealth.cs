@@ -15,8 +15,8 @@ public class MaxHealth : MonoBehaviour
     void Start()
     {
         DontDestroyOnLoad(this.gameObject);
-        if(SceneManager.SceneManager.GetActiveScene().buildIndex == 0) {
-            initialTime = TIme.deltaTIme;
+        if(SceneManager.GetActiveScene().buildIndex == 0) {
+            initialTime = Time.deltaTime;
         }
     }
 
@@ -24,12 +24,8 @@ public class MaxHealth : MonoBehaviour
     void Update()
     {
         runTime+=Time.deltaTime;
-        if(!toSceneSwitcher && SceneManager.GetActiveScene().buildIndex == 0 && runTime - initialTime >= 60) {
+        if(SceneManager.GetActiveScene().buildIndex == 0 && runTime - initialTime >= 120) {
             GameObject.Find("Object_343").GetComponent<Enemy>().EnemyHealth = 0;
-        }
-        else if(toSceneSwitcher && SceneManager.GetActiveScene().buildIndex == 0 && runTime - initialTime > 180) {
-            SceneManager.LoadScene(sceneBuildIndex: 2);
-            setSwitch(true);
         }
     }
 
