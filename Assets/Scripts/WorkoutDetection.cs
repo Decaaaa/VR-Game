@@ -39,7 +39,7 @@ public class WorkoutDetection : MonoBehaviour
     private bool startedJJ = false;
     private bool finishedJJ = false;
     private bool prevJJ = false;
-    private int JJCount = 0;
+    public int JJCount = 0;
 
     private float time = 0f;
 

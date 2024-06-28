@@ -18,6 +18,6 @@ public class updatereps : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _title.text = "Num Reps: "+(w.squatCount).ToString();
+        _title.text = "Num Reps: "+(w.squatCount+w.JJCount).ToString();
     }
 }
