@@ -19,10 +19,10 @@ public class MaxHealth : MonoBehaviour
     void Update()
     {
         runTime+=Time.deltaTime;
-        if(!toSceneSwitcher && SceneManager.getActiveScene() == 0 && runTime >= 90) {
+        if(!toSceneSwitcher && SceneManager.getActiveScene() == 0 && runTime >= 60) {
             GameObject.Find("Object_343").GetComponent<Enemy>().EnemyHealth = 0;
         }
-        else if(toSceneSwitcher && SceneManager.getActiveScene() == 0 && runTime > 174) {
+        else if(toSceneSwitcher && SceneManager.getActiveScene() == 0 && runTime > 180) {
             SceneManager.LoadScene(sceneBuildIndex: 0);
             setSwitch(true);
         }
