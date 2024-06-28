@@ -80,10 +80,9 @@ public class WorkoutDetection : MonoBehaviour
             Player.GetComponent<MaxHealth>().updateHealth(10);
         }
 
-        if (finishedJJ && !prevJJ && JJBool)
+        if (finishedJJ && !prevJJ)
         {
             JJCount++;
-            jumped = false;
             Player.GetComponent<MaxHealth>().updateHealth(10);
         }
 
@@ -97,7 +96,7 @@ public class WorkoutDetection : MonoBehaviour
 
     void TrackSquats()
     {
-        if (headDown > 90 && headDown > headUp)
+        if (headDown > 60 && headDown > headUp)
         {
             startedSquat = true;
             finishedSquat = false;
@@ -116,25 +115,15 @@ public class WorkoutDetection : MonoBehaviour
     void TrackJJ()
     {   
         if(head.position.y - playerHeight >= 0.17) {
-            if (leftUp > 25 && leftUp > leftDown)
+            if(distIncrease > 15 && distIncrease > distDecrease)
             {
                 startedJJ = true;
                 finishedJJ = false;
             }
-
-            if(startedJJ) {
-                if(leftDown > 25) {
-                    finishedJJ = true;
-                    startedJJ = false;
-                }
-            }
-
-            if(distIncrease > 15) {
-                JJBool = true;
-            }
-
-            if(distDecrease > 15) {
-                JJBool = false;
+            if(distDecrease > 15) 
+            {
+                startedJJ = false;
+                finishedJJ = true;
             }
         }
     }
