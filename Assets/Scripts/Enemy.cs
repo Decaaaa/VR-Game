@@ -25,8 +25,9 @@ public class Enemy : MonoBehaviour {
 
     public AudioSource[] audios;
     void Start(){
-        EnemyHealth = GameObject.Find("maxHealth").GetComponent<MaxHealth>().getEnemyHealth();
+        EnemyHealth = GameObject.Find("MaxHealth Backup").GetComponent<MaxHealth>().getEnemyHealth();
         rb=GetComponent<Rigidbody>();
+        GameObject.Find("MaxHealth Backup").GetComponent<MaxHealth>().printTime();
     }
 
     void OnTriggerEnter(Collider other) {
@@ -156,6 +157,6 @@ public class Enemy : MonoBehaviour {
         //     }
         // }
         //Debug.Log(EnemyHealth <= 50 && EnemyHealth > 25);
-        if(EnemyHealth <= 50 && EnemyHealth > 20) EnemyHealth += damageHealedPerSec * Time.deltaTime;
+        if(EnemyHealth <= 50 && EnemyHealth > 25) EnemyHealth += damageHealedPerSec * Time.deltaTime;
     }
 }
