@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MaxHealth : MonoBehaviour
 {
@@ -19,10 +20,10 @@ public class MaxHealth : MonoBehaviour
     void Update()
     {
         runTime+=Time.deltaTime;
-        if(!toSceneSwitcher && SceneManager.getActiveScene() == 0 && runTime >= 90) {
+        if(!toSceneSwitcher && SceneManager.GetActiveScene().buildIndex == 2 && runTime >= 90) {
             GameObject.Find("Object_343").GetComponent<Enemy>().EnemyHealth = 0;
         }
-        else if(toSceneSwitcher && SceneManager.getActiveScene() == 0 && runTime > 174) {
+        else if(toSceneSwitcher && SceneManager.GetActiveScene().buildIndex == 2 && runTime > 174) {
             SceneManager.LoadScene(sceneBuildIndex: 0);
             setSwitch(true);
         }
