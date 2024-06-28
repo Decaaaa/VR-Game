@@ -15,9 +15,9 @@ public class MaxHealth : MonoBehaviour
     void Start()
     {
         DontDestroyOnLoad(this.gameObject);
-        if(SceneManager.GetActiveScene().buildIndex == 0) {
-            initialTime = Time.deltaTime;
-        }
+        //if(SceneManager.SceneManager.GetActiveScene().buildIndex == 0) {
+        //    initialTime = TIme.deltaTIme;
+        //}
     }
 
     // Update is called once per frame
