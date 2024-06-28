@@ -10,6 +10,8 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // if(maxHealthObj.GetComponent<MaxHealth>().getSwitch()) maxHealthObj.GetComponent<MaxHealth>().setPrevInitialTime(maxHealthObj.GetComponent<MaxHealth>().getRuntime());
+        // else maxHealthObj.GetComponent<MaxHealth>().setInitialTime(maxHealthObj.GetComponent<MaxHealth>().getRuntime());
         playerHealth = maxHealthObj.GetComponent<MaxHealth>().getHealth();
         //Debug.Log("marijuana");
     }

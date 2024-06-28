@@ -9,7 +9,8 @@ public class MaxHealth : MonoBehaviour
     private static int maxEnemyHealth = 100;
     private static bool toSceneSwitcher = false;
 
-    private static float initialTime;
+    private static float initialTime = 0;
+    private static float prevInitialTime = 0;
     private static float runTime = 0;
     // Start is called before the first frame update
     void Start()
@@ -24,14 +25,23 @@ public class MaxHealth : MonoBehaviour
     void Update()
     {
         runTime+=Time.deltaTime;
-        if(SceneManager.GetActiveScene().buildIndex == 0 && runTime - initialTime >= 120) {
-            GameObject.Find("Object_343").GetComponent<Enemy>().EnemyHealth = 0;
+        if(runTime - initialTime < getOverallRuntime()) {
+            if(SceneManager.GetActiveScene().buildIndex == 0 && getOverallRuntime() >= 180) GameObject.Find("Object_343").GetComponent<Enemy>().EnemyHealth = 0;
         }
+        else if (SceneManager.GetActiveScene().buildIndex == 0 && getOverallRuntime() >= 120) GameObject.Find("Object_343").GetComponent<Enemy>().EnemyHealth = 0;
+        
     }
 
     public void updateHealth(int change)
     {
         maxHealth += change;
+    }
+
+    public float getRuntime(){
+        return runTime;
+    }
+    public float getOverallRuntime(){
+        return runTime-prevInitialTime;
     }
 
     public int getHealth()
@@ -42,17 +52,27 @@ public class MaxHealth : MonoBehaviour
     {
         maxEnemyHealth = health;
     }
-    public int getEnemyHealth()
+    public int getEnemyHealth() 
     {
         return maxEnemyHealth;
     }
     public void setSwitch(bool nahoryah)
     {
         toSceneSwitcher = nahoryah;
+        if(nahoryah) prevInitialTime = initialTime;
+        initialTime = runTime;
     }
     public bool getSwitch()
     {
         return toSceneSwitcher;
+    }
+    public void setInitialTime(float time)
+    {
+        initialTime = time;
+    }
+    public void setPrevInitialTime(float time)
+    {
+        prevInitialTime = time;
     }
     public void printTime() {
         Debug.Log(runTime);

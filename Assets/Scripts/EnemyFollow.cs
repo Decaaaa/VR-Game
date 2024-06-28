@@ -17,10 +17,12 @@ public class EnemyFollow : MonoBehaviour {
     public bool playerInAttackRange;
     public GameObject EnemyObject;
     float EnemyHealth;
+    int numRecoveries;
     public bool Recovery;
     UnityEngine.Vector3 randDir;
     // Start is called before the first frame update
     void Start() {
+        numRecoveries = 0;
         dps = GameObject.Find("MaxHealth Backup").GetComponent<MaxHealth>().getEnemyHealth()/20f;
         playerInAttackRange = false;
         CameraPlayer=GameObject.Find("Main Camera");
@@ -31,8 +33,11 @@ public class EnemyFollow : MonoBehaviour {
     void Update() {
         UnityEngine.Vector3 distanceToPlayer = transform.position - Player.position;
         EnemyHealth = EnemyObject.GetComponent<Enemy>().EnemyHealth;
-        Recovery = EnemyHealth < (GameObject.Find("MaxHealth Backup").GetComponent<MaxHealth>().getEnemyHealth()*0.5f) && EnemyHealth > (GameObject.Find("MaxHealth Backup").GetComponent<MaxHealth>().getEnemyHealth()*0.25f); 
-
+        if(numRecoveries < 2 && EnemyHealth < (GameObject.Find("MaxHealth Backup").GetComponent<MaxHealth>().getEnemyHealth()*0.5f) && EnemyHealth > (GameObject.Find("MaxHealth Backup").GetComponent<MaxHealth>().getEnemyHealth()*0.25f)) {
+            if(!Recovery) numRecoveries++;
+            Recovery = true;
+        }
+        
         playerInAttackRange = Math.Abs(distanceToPlayer.magnitude) < attackRange;
         if(Recovery) RecoveryMode();
         else if(playerInAttackRange) AttackPlayer();

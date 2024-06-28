@@ -7,6 +7,7 @@ public class updatetimer : MonoBehaviour
 {
     [SerializeField] 
     public TMP_Text _title;
+    public MaxHealth mh;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,12 +17,13 @@ public class updatetimer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //setTime(239);
+        setTime(180-mh.getOverallRuntime());
     }
 
-    public void setTime(int seconds){
-        int minutes = seconds/60;
-        int s = seconds%60;
-        _title.text = minutes.ToString()+":"+s.ToString();
+    public void setTime(float seconds){
+        int minutes = (int) seconds/60;
+        int s = (int) seconds%60;
+        if(s/10 == 0) _title.text = minutes.ToString()+":0"+s.ToString();
+        else _title.text = minutes.ToString()+":"+s.ToString();
     }
 }

@@ -17748,7 +17748,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHealth: 100
-  maxHealthObj: {fileID: 0}
+  maxHealthObj: {fileID: 382297950}
 --- !u!4 &1586167294 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2871854915733156396, guid: 65eb6b98091a5734ba9d9ca871cef69a, type: 3}
@@ -20247,6 +20247,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _title: {fileID: 2012030322}
+  mh: {fileID: 382297952}
 --- !u!114 &2012030322
 MonoBehaviour:
   m_ObjectHideFlags: 0
