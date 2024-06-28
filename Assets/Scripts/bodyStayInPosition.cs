@@ -20,5 +20,6 @@ public class bodyStayInPosition : MonoBehaviour
         //transform.position = Vector3.MoveTowards(transform.position, target.position, step);
         Vector3 goal = new Vector3(target.position.x, target.position.y - offset, target.position.z + 0.15f);
         transform.position = goal;
+        transform.rotation = target.rotation;
     }
 }
