@@ -20,11 +20,11 @@ public class MaxHealth : MonoBehaviour
     void Update()
     {
         runTime+=Time.deltaTime;
-        if(!toSceneSwitcher && SceneManager.GetActiveScene().buildIndex == 2 && runTime >= 90) {
+        if(!toSceneSwitcher && SceneManager.GetActiveScene().buildIndex == 0 && runTime >= 90) {
             GameObject.Find("Object_343").GetComponent<Enemy>().EnemyHealth = 0;
         }
-        else if(toSceneSwitcher && SceneManager.GetActiveScene().buildIndex == 2 && runTime > 174) {
-            SceneManager.LoadScene(sceneBuildIndex: 0);
+        else if(toSceneSwitcher && SceneManager.GetActiveScene().buildIndex == 0 && runTime > 234) {
+            SceneManager.LoadScene(sceneBuildIndex: 2);
             setSwitch(true);
         }
     }

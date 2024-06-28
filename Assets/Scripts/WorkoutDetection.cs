@@ -44,6 +44,7 @@ public class WorkoutDetection : MonoBehaviour
     private float time = 0f;
 
     private float playerHeight;
+    private bool gotHeight = false;
     private bool jumped = false;
     private float dist;
     private float oldDist;
@@ -59,7 +60,6 @@ public class WorkoutDetection : MonoBehaviour
         oldRightHeight = rightHand.position.y;
         oldLeftHeight = leftHand.position.y;
 
-        playerHeight = head.position.y;
         dist = Vector3.Magnitude(rightHand.position - leftHand.position);
         oldDist = dist;
     }
@@ -70,6 +70,12 @@ public class WorkoutDetection : MonoBehaviour
         time += Time.deltaTime;
         dist = Vector3.Magnitude(rightHand.position - leftHand.position);
         deltaDist = Math.Abs(dist) - Math.Abs(oldDist);
+
+        if (!gotHeight)
+        {
+            playerHeight = head.position.y;
+            gotHeight = true;
+        }
 
         UpdateVariables();
         TrackSquats();
@@ -86,9 +92,9 @@ public class WorkoutDetection : MonoBehaviour
             Player.GetComponent<MaxHealth>().updateHealth(10);
         }
 
-        //Debug.Log("squats: " + squatCount + "\nhealth: " + Player.GetComponent<MaxHealth>().getHealth());
-
-        Debug.Log("JJ: " + JJCount + " | Squat: " + squatCount);
+        // .Log("squats: " + squatCount + "\nhealth: " + Player.GetComponent<MaxHealth>().getHealth());
+        Debug.Log("Standing Height: " + playerHeight + " | Current Height: " + head.position.y + " | Elevation: " + (head.position.y - playerHeight));
+        // Debug.Log("JJ: " + JJCount + " | Squat: " + squatCount);
         prevSquat = finishedSquat;
         prevJJ = finishedJJ;
         oldDist = dist;
