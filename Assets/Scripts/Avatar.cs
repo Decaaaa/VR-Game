@@ -158,8 +158,8 @@ public class Avatar : MonoBehaviour
                     displacement = displacement2;
                 }
             }
-            transform.position = Vector3.Lerp(transform.position,initialPosition+ Vector3.up * displacement + Vector3.up * footGroundOffset,
-                Time.deltaTime*5f);
+            //transform.position = Vector3.Lerp(transform.position,initialPosition+ Vector3.up * displacement + Vector3.up * footGroundOffset,
+            //    Time.deltaTime*5f);
         }
 
         // Compute the new rotations for each limbs of the avatar using the calibration datas we created before.
@@ -195,7 +195,7 @@ public class Avatar : MonoBehaviour
             d.y *= 0.5f;
             Quaternion deltaRotTracked = Quaternion.FromToRotation(hipsTwist.initialDir, d);
             targetRot= deltaRotTracked * initialRotation;
-            transform.rotation = Quaternion.Lerp(transform.rotation, targetRot, Time.deltaTime * speed);
+            //transform.rotation = Quaternion.Lerp(transform.rotation, targetRot, Time.deltaTime * speed);
 
         }
 

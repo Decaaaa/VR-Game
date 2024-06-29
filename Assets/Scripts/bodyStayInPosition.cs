@@ -5,12 +5,12 @@ using UnityEngine;
 public class bodyStayInPosition : MonoBehaviour
 {
     public Transform target;
-    public float speed = 5f;
-    public float offset = 1.48f;
+    float speed = 5f;
+    float offset = 1.5f;
     // Start is called before the first frame update
     void Start()
     {
-        
+        DontDestroyOnLoad(this.gameObject);
     }
 
     // Update is called once per frame
@@ -18,8 +18,11 @@ public class bodyStayInPosition : MonoBehaviour
     {
         //float step = speed * Time.deltaTime;
         //transform.position = Vector3.MoveTowards(transform.position, target.position, step);
-        Vector3 goal = new Vector3(target.position.x, target.position.y - offset, target.position.z + 0.15f);
-        transform.position = goal;
-        //transform.rotation = target.rotation;
+        Vector3 goal = new Vector3(target.position.x, target.position.y /*- offset*/, target.position.z /*+ 0.08f*/);
+        //Debug.Log("before: " + transform.rotation);
+        //Debug.Log("camera: " + target.rotation);
+        transform.position = target.position;
+        transform.Rotate(0.0f, target.rotation.y-transform.rotation.y, 0.0f, Space.Self);
+        //Debug.Log("after: " + transform.rotation);
     }
 }
