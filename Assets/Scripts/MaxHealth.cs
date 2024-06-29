@@ -27,8 +27,8 @@ public class MaxHealth : MonoBehaviour
             prevTime = (int)Time.time;
             runTime++;
         }
-        if(toSceneSwitcher && SceneManager.GetActiveScene().buildIndex == 0 && runTime >= 180) GameObject.Find("Object_343").GetComponent<Enemy>().EnemyHealth = 0;
-        else if(!toSceneSwitcher && SceneManager.GetActiveScene().buildIndex == 0 && runTime >= 120) GameObject.Find("Object_343").GetComponent<Enemy>().EnemyHealth = 0;
+        if(toSceneSwitcher && SceneManager.GetActiveScene().buildIndex == 0 && runTime >= 175) GameObject.Find("Main Camera").GetComponent<Player>().playerHealth = 0;
+        else if(!toSceneSwitcher && SceneManager.GetActiveScene().buildIndex == 0 && runTime >= 117) GameObject.Find("Main Camera").GetComponent<Player>().playerHealth = 0;
     }
 
     public void updateHealth(int change)
