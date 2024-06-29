@@ -27,7 +27,7 @@ public class Enemy : MonoBehaviour {
     void Start(){
         EnemyHealth = GameObject.Find("MaxHealth Backup").GetComponent<MaxHealth>().getEnemyHealth();
         rb=GetComponent<Rigidbody>();
-        GameObject.Find("MaxHealth Backup").GetComponent<MaxHealth>().printTime();
+        //GameObject.Find("MaxHealth Backup").GetComponent<MaxHealth>().printTime();
     }
 
     void OnTriggerEnter(Collider other) {
@@ -130,17 +130,6 @@ public class Enemy : MonoBehaviour {
                 audios[(int)Random.Range(0, 4.999f)].PlayDelayed(0);
             }
         }
-
-
-        if (EnemyHealth <= 0) {
-            Destroy(GameObject.Find("Cool Robot Again"));
-            Destroy(GameObject.Find("Health Bars"));
-        }
-        UnityEngine.Vector3 playerPos = player.transform.position;
-        if(EnemyHealth <= 0 && !((playerPos.x>399.63f && playerPos.x<404.15f) && (playerPos.z>-4.07f && playerPos.z<10.26f))) {
-            player.transform.position = new UnityEngine.Vector3(401.96f , 51, 6.81f);
-            player.transform.rotation = UnityEngine.Quaternion.Euler(0, 180, 0);
-        }
     }
 
     void Update() {
@@ -157,6 +146,7 @@ public class Enemy : MonoBehaviour {
         //     }
         // }
         //Debug.Log(EnemyHealth <= 50 && EnemyHealth > 25);
-        if(EnemyHealth <= 50 && EnemyHealth > 25) EnemyHealth += damageHealedPerSec * Time.deltaTime;
+        if(EnemyHealth <= GameObject.Find("MaxHealth Backup").GetComponent<MaxHealth>().getEnemyHealth()*0.5f && EnemyHealth > GameObject.Find("MaxHealth Backup").GetComponent<MaxHealth>().getEnemyHealth()*0.25f) 
+            EnemyHealth += damageHealedPerSec * Time.deltaTime;
     }
 }

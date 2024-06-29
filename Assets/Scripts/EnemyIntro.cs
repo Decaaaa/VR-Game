@@ -12,6 +12,10 @@ public class EnemyIntro : MonoBehaviour
     public Transform spawnPoint;     // Transform where the enemy will be instantiated
     public Camera mainCamera;        // Reference to the main Camera
 
+    public GameObject collider1;
+    public GameObject collider2;
+    public GameObject collider3;
+    public GameObject collider4;
     public bool end = false;
     public float duration = 1f;
 
@@ -55,6 +59,10 @@ public class EnemyIntro : MonoBehaviour
 
         // Wait for the remaining 2 seconds of the animation
         yield return new WaitForSeconds(2f);
+        collider1.SetActive(false);
+        collider2.SetActive(false);
+        collider3.SetActive(false);
+        collider4.SetActive(false);
         end = true;
     }
 }

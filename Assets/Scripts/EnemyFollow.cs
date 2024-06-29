@@ -19,6 +19,7 @@ public class EnemyFollow : MonoBehaviour {
     float EnemyHealth;
     int numRecoveries;
     public bool Recovery;
+    bool waitForRecovery;
     UnityEngine.Vector3 randDir;
     // Start is called before the first frame update
     void Start() {
@@ -31,13 +32,20 @@ public class EnemyFollow : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        UnityEngine.Vector3 distanceToPlayer = transform.position - Player.position;
+        UnityEngine.Vector3 distanceToPlayer = transform.position - new UnityEngine.Vector3(Player.position.x, transform.position.y, Player.position.z);
         EnemyHealth = EnemyObject.GetComponent<Enemy>().EnemyHealth;
         if(numRecoveries < 2 && EnemyHealth < (GameObject.Find("MaxHealth Backup").GetComponent<MaxHealth>().getEnemyHealth()*0.5f) && EnemyHealth > (GameObject.Find("MaxHealth Backup").GetComponent<MaxHealth>().getEnemyHealth()*0.25f)) {
-            if(!Recovery) numRecoveries++;
+            if(!waitForRecovery && EnemyHealth < 40) {
+                numRecoveries++;
+                waitForRecovery = true;
+            }
             Recovery = true;
         }
-        
+        else {
+            Recovery = false;
+            waitForRecovery = false;
+        }
+
         playerInAttackRange = Math.Abs(distanceToPlayer.magnitude) < attackRange;
         if(Recovery) RecoveryMode();
         else if(playerInAttackRange) AttackPlayer();
@@ -56,7 +64,7 @@ public class EnemyFollow : MonoBehaviour {
     private void ChasePlayer() {
         //Debug.Log("enemy: " + transform.position);
         //Debug.Log("player: " + Player.position);
-        enemy.SetDestination(Player.position);
+        enemy.SetDestination(new UnityEngine.Vector3(Player.position.x, transform.position.y, Player.position.z));
         enemy.isStopped = false;
     }
 
