@@ -9,9 +9,9 @@ public class MaxHealth : MonoBehaviour
     private static int maxEnemyHealth = 100;
     private static bool toSceneSwitcher = false;
 
-    private static float initialTime = 0;
-    private static float prevInitialTime = 0;
-    private static float runTime = 0;
+    private static float initialTime = Time.time;
+    private static float prevInitialTime = Time.time;
+    private static float runTime;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +24,7 @@ public class MaxHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        runTime+=Time.deltaTime;
+        runTime=Time.time;
         if(runTime - initialTime < getOverallRuntime()) {
             if(SceneManager.GetActiveScene().buildIndex == 0 && getOverallRuntime() >= 180) GameObject.Find("Object_343").GetComponent<Enemy>().EnemyHealth = 0;
         }
