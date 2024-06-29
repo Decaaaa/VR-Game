@@ -94,7 +94,7 @@ public class WorkoutDetection : MonoBehaviour
         }
 
         // .Log("squats: " + squatCount + "\nhealth: " + Player.GetComponent<MaxHealth>().getHealth());
-        Debug.Log("Standing Height: " + playerHeight + " | Current Height: " + head.position.y + " | Elevation: " + (head.position.y - playerHeight));
+        // Debug.Log("Elevation: " + (head.position.y - playerHeight) + " | Right: " + rightUp + " | Left: " + leftUp);
         // Debug.Log("JJ: " + JJCount + " | Squat: " + squatCount);
         prevSquat = finishedSquat;
         prevJJ = finishedJJ;
@@ -103,7 +103,7 @@ public class WorkoutDetection : MonoBehaviour
 
     void TrackSquats()
     {
-        if (headDown > 60 && headDown > headUp)
+        if ((headDown > 30 && headDown > headUp) && (leftDown > 20 && leftDown > leftUp) && (rightDown > 20 && rightDown > rightUp))
         {
             startedSquat = true;
             finishedSquat = false;
@@ -111,7 +111,7 @@ public class WorkoutDetection : MonoBehaviour
 
         if(startedSquat)
         {
-            if(headUp > 30)
+            if(headUp > 30 && leftUp > 30 && rightUp > 30)
             {
                 startedSquat = false;
                 finishedSquat = true;
@@ -121,17 +121,33 @@ public class WorkoutDetection : MonoBehaviour
 
     void TrackJJ()
     {   
-        if(head.position.y - playerHeight >= 0.17) {
-            if(distIncrease > 15 && distIncrease > distDecrease)
-            {
-                startedJJ = true;
-                finishedJJ = false;
-            }
-            if(distDecrease > 15) 
-            {
-                startedJJ = false;
-                finishedJJ = true;
-            }
+        // if(head.position.y - playerHeight >= 0.39) {
+        //     if(rightUp > 30 && leftUp > 30)
+        //     {
+        //         startedJJ = true;
+        //         finishedJJ = false;
+        //     }
+        //     if(startedJJ) 
+        //     {
+        //         if(rightDown > 30 && leftDown > 30) 
+        //         {
+        //             startedJJ = false;
+        //             finishedJJ = true;
+        //         }
+        //     }
+        // }
+
+        if(head.position.y - playerHeight >= 0.39 && JJBool) {
+            JJBool = false;
+            finishedJJ = true;
+            Debug.Log("AAAAAAAAAAAAAAAAGGGGGGGGGGGGGGGGGGGGGGGGGHHHHHHHHHHHHHHHHHHHHHHHHhhhhhh");
+        }
+        else {
+            finishedJJ = false;
+        }
+
+        if(head.position.y - playerHeight < 0.39) {
+            JJBool = true;
         }
     }
 

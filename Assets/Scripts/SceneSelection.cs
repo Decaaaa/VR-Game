@@ -51,16 +51,20 @@ public class SceneSelection : MonoBehaviour
 
     public void PressTraining()
     {
-        training.GetComponent<Image>().color = new Color32(0, 255, 138, 255);
-        battle.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
-        gameMode = true;
+        if (GameObject.Find("maxHealth")==null){
+            training.GetComponent<Image>().color = new Color32(0, 255, 138, 255);
+            battle.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            gameMode = true;
+        }
     }
 
     public void PressBattle()
     {
-        battle.GetComponent<Image>().color = new Color32(0, 255, 138, 255);
-        training.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
-        gameMode = false;
+        if (GameObject.Find("MaxHealth Backup")==null){
+            battle.GetComponent<Image>().color = new Color32(0, 255, 138, 255);
+            training.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            gameMode = false;
+        }
     }
 
     public void PressPlay()

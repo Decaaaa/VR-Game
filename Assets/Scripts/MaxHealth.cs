@@ -14,6 +14,10 @@ public class MaxHealth : MonoBehaviour
 
     private static int prevTime;
     private static int runTime;
+    /*
+    private static bool trainingbool = false;
+    private static bool battlebool = false;
+    */
     void Start()
     {
         DontDestroyOnLoad(this.gameObject);
@@ -30,7 +34,20 @@ public class MaxHealth : MonoBehaviour
         if(toSceneSwitcher && SceneManager.GetActiveScene().buildIndex == 0 && runTime >= 175) GameObject.Find("Main Camera").GetComponent<Player>().playerHealth = 0;
         else if(!toSceneSwitcher && SceneManager.GetActiveScene().buildIndex == 0 && runTime >= 117) GameObject.Find("Main Camera").GetComponent<Player>().playerHealth = 0;
     }
-
+    /*
+    public void setBattle(bool a){
+        battlebool=a;
+    }
+    public void setTraining(bool a){
+        trainingbool=a;
+    }
+    public bool getBattle(){
+        return battlebool;
+    }
+    public bool getTraining(){
+        return trainingbool;
+    }
+    */
     public void updateHealth(int change)
     {
         maxHealth += change;
