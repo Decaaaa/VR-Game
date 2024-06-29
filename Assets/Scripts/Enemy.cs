@@ -27,7 +27,7 @@ public class Enemy : MonoBehaviour {
     void Start(){
         EnemyHealth = GameObject.Find("MaxHealth Backup").GetComponent<MaxHealth>().getEnemyHealth();
         rb=GetComponent<Rigidbody>();
-        GameObject.Find("MaxHealth Backup").GetComponent<MaxHealth>().printTime();
+        //GameObject.Find("MaxHealth Backup").GetComponent<MaxHealth>().printTime();
     }
 
     void OnTriggerEnter(Collider other) {
@@ -157,6 +157,7 @@ public class Enemy : MonoBehaviour {
         //     }
         // }
         //Debug.Log(EnemyHealth <= 50 && EnemyHealth > 25);
-        if(EnemyHealth <= 50 && EnemyHealth > 25) EnemyHealth += damageHealedPerSec * Time.deltaTime;
+        if(EnemyHealth <= GameObject.Find("MaxHealth Backup").GetComponent<MaxHealth>().getEnemyHealth()*0.5f && EnemyHealth > GameObject.Find("MaxHealth Backup").GetComponent<MaxHealth>().getEnemyHealth()*0.25f) 
+            EnemyHealth += damageHealedPerSec * Time.deltaTime;
     }
 }

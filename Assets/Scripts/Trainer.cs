@@ -49,7 +49,7 @@ public class Trainer : MonoBehaviour
                 SceneManager.LoadScene(sceneBuildIndex: 2);
                 GameObject.Find("maxHealth").GetComponent<MaxHealth>().setEnemyHealth(GameObject.Find("maxHealth").GetComponent<MaxHealth>().getEnemyHealth()+125);
                 GameObject.Find("maxHealth").GetComponent<MaxHealth>().setSwitch(false);
-                GameObject.Find("maxHealth").GetComponent<MaxHealth>().printTime();
+                //GameObject.Find("maxHealth").GetComponent<MaxHealth>().printTime();
             }
             else
             {

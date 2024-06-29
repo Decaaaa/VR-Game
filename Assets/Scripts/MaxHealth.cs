@@ -9,9 +9,10 @@ public class MaxHealth : MonoBehaviour
     private static int maxEnemyHealth = 100;
     private static bool toSceneSwitcher = false;
 
-    private static float initialTime = Time.time;
-    private static float prevInitialTime = Time.time;
+    private static float initialTime;
+    private static float prevInitialTime;
     private static float runTime;
+    //private static float prevRunTime;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,17 +20,20 @@ public class MaxHealth : MonoBehaviour
         //if(SceneManager.SceneManager.GetActiveScene().buildIndex == 0) {
         //    initialTime = TIme.deltaTIme;
         //}
+        initialTime = Time.realtimeSinceStartup;
+        prevInitialTime = Time.realtimeSinceStartup;
+        //prevRunTime = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        runTime=Time.time;
+        runTime += Time.realtimeSinceStartup-runTime;
         if(runTime - initialTime < getOverallRuntime()) {
             if(SceneManager.GetActiveScene().buildIndex == 0 && getOverallRuntime() >= 180) GameObject.Find("Object_343").GetComponent<Enemy>().EnemyHealth = 0;
         }
-        else if (SceneManager.GetActiveScene().buildIndex == 0 && getOverallRuntime() >= 120) GameObject.Find("Object_343").GetComponent<Enemy>().EnemyHealth = 0;
-        
+        else if (SceneManager.GetActiveScene().buildIndex == 0 && getOverallRuntime() >= 10) GameObject.Find("Object_343").GetComponent<Enemy>().EnemyHealth = 0;
+        //printTime();
     }
 
     public void updateHealth(int change)
@@ -60,7 +64,7 @@ public class MaxHealth : MonoBehaviour
     {
         toSceneSwitcher = nahoryah;
         if(nahoryah) prevInitialTime = initialTime;
-        initialTime = runTime;
+        initialTime = Time.realtimeSinceStartup;
     }
     public bool getSwitch()
     {
