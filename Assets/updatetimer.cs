@@ -17,7 +17,7 @@ public class updatetimer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        setTime(180-mh.getOverallRuntime());
+        setTime(180-mh.getRuntime());
     }
 
     public void setTime(float seconds){

@@ -1144,6 +1144,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 246da391f0e33f24587614a3a2910c98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  win: {fileID: 0}
+  lose: {fileID: 0}
 --- !u!1001 &480509818
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17285,7 +17287,7 @@ MonoBehaviour:
   - {fileID: 1214420834}
   - {fileID: 1070846648}
   - {fileID: 880360476}
-  delays: 000000000000000004000000070000000100000003000000040000000100000001000000
+  delays: 020000000000000004000000070000000100000003000000040000000100000001000000
   anim: {fileID: 5866666021003796924}
   animState: ffffffffffffffffffffffff0100000001000000000000000000000000000000ffffffff
 --- !u!1 &1444825216

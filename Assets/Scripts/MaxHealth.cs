@@ -9,31 +9,26 @@ public class MaxHealth : MonoBehaviour
     private static int maxEnemyHealth = 100;
     private static bool toSceneSwitcher = false;
 
-    private static float initialTime;
-    private static float prevInitialTime;
-    private static float runTime;
-    //private static float prevRunTime;
-    // Start is called before the first frame update
+    public AudioSource win;
+    public AudioSource lose;
+
+    private static int prevTime;
+    private static int runTime;
     void Start()
     {
         DontDestroyOnLoad(this.gameObject);
-        //if(SceneManager.SceneManager.GetActiveScene().buildIndex == 0) {
-        //    initialTime = TIme.deltaTIme;
-        //}
-        initialTime = Time.realtimeSinceStartup;
-        prevInitialTime = Time.realtimeSinceStartup;
-        //prevRunTime = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        runTime += Time.realtimeSinceStartup-runTime;
-        if(runTime - initialTime < getOverallRuntime()) {
-            if(SceneManager.GetActiveScene().buildIndex == 0 && getOverallRuntime() >= 180) GameObject.Find("Object_343").GetComponent<Enemy>().EnemyHealth = 0;
+        //playWin();
+        if ((int)Time.time>prevTime){
+            prevTime = (int)Time.time;
+            runTime++;
         }
-        else if (SceneManager.GetActiveScene().buildIndex == 0 && getOverallRuntime() >= 10) GameObject.Find("Object_343").GetComponent<Enemy>().EnemyHealth = 0;
-        //printTime();
+        if(toSceneSwitcher && SceneManager.GetActiveScene().buildIndex == 0 && runTime >= 180) GameObject.Find("Object_343").GetComponent<Enemy>().EnemyHealth = 0;
+        else if(!toSceneSwitcher && SceneManager.GetActiveScene().buildIndex == 0 && runTime >= 120) GameObject.Find("Object_343").GetComponent<Enemy>().EnemyHealth = 0;
     }
 
     public void updateHealth(int change)
@@ -41,11 +36,8 @@ public class MaxHealth : MonoBehaviour
         maxHealth += change;
     }
 
-    public float getRuntime(){
+    public int getRuntime(){
         return runTime;
-    }
-    public float getOverallRuntime(){
-        return runTime-prevInitialTime;
     }
 
     public int getHealth()
@@ -63,22 +55,19 @@ public class MaxHealth : MonoBehaviour
     public void setSwitch(bool nahoryah)
     {
         toSceneSwitcher = nahoryah;
-        if(nahoryah) prevInitialTime = initialTime;
-        initialTime = Time.realtimeSinceStartup;
     }
     public bool getSwitch()
     {
         return toSceneSwitcher;
     }
-    public void setInitialTime(float time)
-    {
-        initialTime = time;
-    }
-    public void setPrevInitialTime(float time)
-    {
-        prevInitialTime = time;
-    }
     public void printTime() {
         Debug.Log(runTime);
+    }
+    
+    public void playWin(){
+        win.Play();
+    }
+    public void playLose(){
+        lose.Play();
     }
 }
