@@ -79,6 +79,7 @@ public class WorkoutDetection : MonoBehaviour
 
         UpdateVariables();
         TrackSquats();
+
         TrackJJ();
         if (finishedSquat && !prevSquat)
         {
